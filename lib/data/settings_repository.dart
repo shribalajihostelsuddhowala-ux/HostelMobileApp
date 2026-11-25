@@ -40,4 +40,13 @@ class SettingsRepository {
         .limit(1);
     return rows.isEmpty ? null : rows.first['phone'] as String?;
   }
+
+  /// Saves the month the academic year starts in (app_setting
+  /// "AcademicYear.StartMonth"); the database functions follow it at once.
+  Future<void> saveAcademicYearStartMonth(int month) async {
+    await Database.client.from('app_setting').upsert({
+      'setting_key': 'AcademicYear.StartMonth',
+      'setting_value': '$month',
+    }, onConflict: 'setting_key');
+  }
 }

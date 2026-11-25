@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../models/menu_item.dart';
 
 /// The application menu, in the same sections and order as the desktop
-/// MainForm.BuildNavigation(). Backup / Restore and Application Settings are
-/// left out: the database is in Supabase, which backs itself up.
+/// MainForm.BuildNavigation(). Backup / Restore is left out: the database is
+/// in Supabase, which backs itself up. Application Settings has only the
+/// academic year.
 const List<MenuItem> appMenu = [
   MenuItem(
     group: 'OVERVIEW',
@@ -97,5 +98,11 @@ const List<MenuItem> appMenu = [
     title: 'Email Settings',
     description: 'Email texts and the history of messages sent.',
     icon: Icons.email_outlined,
+  ),
+  MenuItem(
+    group: 'SETTINGS',
+    title: 'Application Settings',
+    description: 'The month the academic year starts.',
+    icon: Icons.settings_outlined,
   ),
 ];
